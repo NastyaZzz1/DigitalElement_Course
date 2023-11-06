@@ -1,10 +1,29 @@
 import { getPage } from "../../shared/lib/index.js"
+import { Filter } from "../../widgets/filter/index.js"
+
+const cat = [{
+    all: {
+        name: "Все курсы",
+        searchParam: "all",
+        isChecked: true
+    },
+    front: {
+        name: "Фронтенд",
+        searchParam: "front"
+    },
+    back: {
+        name: "Бэкенд",
+        searchParam: "back"
+    },
+}]
+
+
 
 export default () => {
-    return getPage({
-        title: "О нас",
+    return getPage ({
+        title: "Главная",
         body: `
-            <h1>О нас</h1>
+            <h1>Главная</h1>
             <nav>
                 <ul>
                     <li>
@@ -18,6 +37,7 @@ export default () => {
                     </li>
                 </ul>
             </nav>
-        `
+            ${Filter({category: cat})}
+        `,
     })
 }

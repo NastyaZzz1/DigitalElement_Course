@@ -1,14 +1,21 @@
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite'
 import { createHtmlPlugin } from "vite-plugin-html"
+import mainPage from "./src/pages/index"
+import aboutPage from "./src/pages/about"
+import catalogPage from "./src/pages/catalog" 
 
 const pages = [
     {
         name: "index",
-        content: mainPage()
+        content: mainPage(),
     },
     {
         name: "about",
-        content: aboutPage()
+        content: aboutPage(),
+    },
+    {
+        name: "catalog",
+        content: catalogPage(),
     },
 ]
 
@@ -24,7 +31,7 @@ export default defineConfig({
                         injectScript: content,
                     },
                 },
-            }))
-        })
-    ]
+            })),
+        }),
+    ],
 })
