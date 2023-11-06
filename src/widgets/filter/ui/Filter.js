@@ -21,7 +21,8 @@ export function Filter (props) {
 
     return `
             <section class='${getClassName("", extraClasses)}' ${getAttrs(extraAttrs)} data-js-filter="" >
-                ${category.map(cat => `<label><input ${cat.isChecked ? "checked" : ""} data-js-search-param="" type="checkbox" value="${cat.searchParam}">${cat.name}</label>`).join("")}
+              ${category.map(cat => `<button data-js-search-param="${cat.searchParam}" class="${getClassName("btn")}">${cat.name}</button>`).join("")}
             </section>
             `
 }
+

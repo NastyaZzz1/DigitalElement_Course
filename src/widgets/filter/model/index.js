@@ -16,8 +16,8 @@ export default class FilterModel {
             return FilterModel.instance;
         }
 
-        FilterModel.instance = querySelector(FilterModel.selectors.instanceSelector);
-        this.inputs = Array.from(document.querySelectorAll(FilterModel.selectors.btnSelectors))
+        FilterModel.instance = document.querySelector(FilterModel.selectors.instanceSelector);
+        this.btns = Array.from(document.querySelectorAll(FilterModel.selectors.btnSelectors))
         this.url = new URL(window.location.href)
         this.init()
     }
@@ -26,13 +26,13 @@ export default class FilterModel {
         return btn.getAttribute(FilterModel.selectors.btnSelectors)
     }
 
-    checkboxChanged(e) {
-        console.debug(this.inputs)
+    clickedBtn(e) {
+        console.debug(this.btn)
     }
 
     init() {
-        this.inputs.forEach(input => {
-            input.addEventListener("change", this.checkboxChanged)
+        this.btns.forEach(btn => {
+            btn.addEventListener("click", this.clickedBtn)
         })
     }
 }
