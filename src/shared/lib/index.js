@@ -10,6 +10,7 @@ export const getPage = ({ body = ``, title = ``, meta = [] }) => {
     ${meta.map((item) => item())}
     <title>${title}</title>
     <script src="/src/app/App.js" defer type="module"></script>
+    <link rel="icon" type="image" href="https://d-element.ru/favicon.ico">
   </head>
   <body>
     ${body}
@@ -39,4 +40,9 @@ export const getAttrs = (attrs) => {
     result.push(`${key}=${value}`)
   })
   return result.join(" ")
+}
+
+
+export const sum = (a, b) => {
+  return a + b;
 }

@@ -1,63 +1,47 @@
 // import { Button } from "../../shared/ui/Button"
 import { Filter } from "../../widgets/filter"
 import { getPage } from "../../shared/lib/index.js"
-// import { Footer, Header } from "../../widgets"
+import { Footer, Header } from "../../widgets"
 
 const cat = [
-  
     {
       name: "Все курсы",
       searchParam: "all",
       isChecked: true
     },
     {
-      name: "Фронтенд",
+      name: "Фронтенд-разработка",
       searchParam: "front"
     },
     {
-      name: "Бэкенд",
+      name: "Бэкенд-разработка",
       searchParam: "back"
     },
   
 ]
 
-// const cat = [
-//   {
-//     all: {
-//       name: "Все курсы",
-//       searchParam: "all",
-//       isChecked: true
-//     },
-//     front: {
-//       name: "Фронтенд",
-//       searchParam: "front"
-//     },
-//     back: {
-//       name: "Бэкенд",
-//       searchParam: "back"
-//     },
-//   }
-// ]
 export default () => {
   
   return getPage({
-    title: "Главная",
+    title: "Главная / Каталог",
     body: `
-      <h1>Каталог</h1>
-      <nav>
-        <ul>
+      ${Header()}
+      <div class="content">
+        <nav>
+          <ul class="nav_line">
           <li>
-            <a href="/">Главная</a>
+              <a class="nav_line_link" href="/">ГЛАВНАЯ</a>
           </li>
+          <div>/</div>
           <li>
-            <a href="/about.html">О Нас</a>
-          </li>
-          <li>
-            <a href="/catalog.html">Каталог</a>
+              <a class="nav_line_link" href="/basket.html">КОРЗИНА</a>
           </li>
         </ul>
-      </nav>
-      ${Filter({category: cat})}
+        </nav>
+        <h1>Каталог</h1>
+        ${Filter({category: cat})}
+      </div>
+      ${Footer()}
     `,
   })
 }
